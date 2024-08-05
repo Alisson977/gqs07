@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font: normal 18pt arial;
+            text-align: center;
+            justify-content: center;
+        }
+        #vot{
+            border: solid 1px black;
+            padding-bottom: 200px;
+        }
+        #hsta{
+            margin-top: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div id="vot">
+        <h1 id="hsta">Status de seu voto</h1>
+        <input type="number" name="txtida" id="txtida">
+        <input type="button" value="verificar" onclick="verifique()">
+        <div id="res"></div>
+    </div>
+<script>
+    function verifique(){
+     let ida = document.getElementById('txtida')
+     let res = document.getElementById('res')
+     let idad = Number(ida.value)
+        res.innerHTML = `<p>Você tem <strong>${idad}</strong> anos</p>`
+     if(idad < 16){
+        res.innerHTML += `<p> Você<strong> NÃO VOTA!!! </strong></p>`
+     }  else if(idad >= 16 && idad < 18) {
+        res.innerHTML += `<p>Seu voto é <strong>OPCIONAL</strong></p>`
+    } else {
+        res.innerHTML += `Seu voto é <strong>OBRIGATÓRIO</strong></p>`
+    }
+    }
+</script>
+</body>
+</html>
